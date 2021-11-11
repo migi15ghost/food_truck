@@ -1,0 +1,6 @@
+package com.dribig.food_truck
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}

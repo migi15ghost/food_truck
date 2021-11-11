@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "333853356989",
+    "project_id": "food-truck-5c5b9",
+    "storage_bucket": "food-truck-5c5b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:333853356989:android:ea69c8aa188053514058d4",
+        "android_client_info": {
+          "package_name": "com.dribig.food_truck"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "333853356989-qoi8ncf5bi08f89ie3g99c45svs67p4k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dribig.food_truck",
+            "certificate_hash": "8c585cc6e362e6fcf02ca59e3b2d960b5c2f23c2"
+          }
+        },
+        {
+          "client_id": "333853356989-f0lg3enf3ovhprp1lvtdcpdhbp96e5dp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsbtw-PMaUIj78HfNnvcQ70OEjKrcF9Uc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "333853356989-f0lg3enf3ovhprp1lvtdcpdhbp96e5dp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
