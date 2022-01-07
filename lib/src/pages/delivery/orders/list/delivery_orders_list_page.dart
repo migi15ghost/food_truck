@@ -101,6 +101,16 @@ class _DeliveryOrdersListPageState extends State<DeliveryOrdersListPage> {
           ),
           ListTile(
             onTap: _con.logout,
+            title: Text('Apertura de caja'),
+            trailing: Icon(Icons.account_balance_wallet_outlined),
+          ),
+          ListTile(
+            onTap: _con.logout,
+            title: Text('Cierre de caja'),
+            trailing: Icon(Icons.account_balance_wallet_rounded),
+          ),
+          ListTile(
+            onTap: _con.logout,
             title: Text('Cerrar sesion'),
             trailing: Icon(Icons.power_settings_new),
           ),

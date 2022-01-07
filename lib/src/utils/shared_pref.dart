@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:food_truck/src/provider/users_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPref {
@@ -27,9 +28,22 @@ class SharedPref {
     return prefs.remove(key);
   }
 
-  void logout(BuildContext context) async {
+  void logout(BuildContext context, String idUser) async {
+    UsersProvider usersProvider = new UsersProvider();
+    usersProvider.init(context);
+    await usersProvider.logout(idUser);
     await remove('user');
     Navigator.pushNamedAndRemoveUntil(context, 'login', (route) => false);
+  }
+
+  Future<int> getNumberOrder() async {
+    final prefs = await SharedPreferences.getInstance();
+    return (prefs.getInt('counter') ?? 0) + 1;
+  }
+
+  void setNumberOrder(int counter) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setInt('counter', counter);
   }
 
 }

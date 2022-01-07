@@ -16,12 +16,14 @@ class DeliveryOrdersListController {
     this.refresh = refresh;
     user = User.fromJson(await _sharedPref.read('user'));
     refresh();
-
   }
 
+  void openRegister(){
+    _sharedPref.save('item', 0);
+  }
 
   logout(){
-    _sharedPref.logout(context);
+    _sharedPref.logout(context, user.id);
   }
 
   void openDrawer() {

@@ -5,6 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:food_truck/src/pages/login/login_controller.dart';
 import 'package:food_truck/src/utils/my_colors.dart';
+import 'dart:typed_data';
+import 'dart:convert';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key key}) : super(key: key);

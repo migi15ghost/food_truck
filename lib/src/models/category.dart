@@ -17,8 +17,6 @@ class Category {
     this.description,
   });
 
-
-
   factory Category.fromJson(Map<String, dynamic> json) => Category(
     id: json["id"] is int ? json["id"].toString() : json['id'],
     name: json["name"],

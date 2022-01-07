@@ -26,7 +26,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Delivery App Fluter',
+      title: 'King food app',
       initialRoute: 'login',
       routes: {
         'login' : (BuildContext context) => LoginPage(),

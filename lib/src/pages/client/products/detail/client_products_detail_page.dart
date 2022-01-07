@@ -7,8 +7,9 @@ import 'package:food_truck/src/utils/my_colors.dart';
 import 'client_products_detail_controller.dart';
 
 class ClientProductsDetailPage extends StatefulWidget {
+  Product product;
 
-  ClientProductsDetailPage({Key key}) : super(key: key);
+  ClientProductsDetailPage({Key key, @required this.product}) : super(key: key);
 
   @override
   _ClientProductsDetailPageState createState() => _ClientProductsDetailPageState();
@@ -24,7 +25,7 @@ class _ClientProductsDetailPageState extends State<ClientProductsDetailPage> {
     super.initState();
 
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
-      _con.init(context, refresh);
+      _con.init(context, refresh, widget.product);
     });
   }
 
@@ -43,12 +44,39 @@ class _ClientProductsDetailPageState extends State<ClientProductsDetailPage> {
           ),
           //_imageSlideshow(),
           _textName(),
-          _textDescription(),
-          Spacer(),
-          _addOrRemoveItem(),
+          _cardDercription(),
           //_standartDelivery(),
           _buttonShoppingBag()
         ],
+      ),
+    );
+  }
+
+  Widget _cardDercription () {
+    final double categoryHeight = MediaQuery.of(context).size.height * 0.30;
+    final double categoryWidth = MediaQuery.of(context).size.width * 0.70;
+    return Container(
+      width: categoryWidth,
+      margin: EdgeInsets.only(right: 20),
+      height: categoryHeight,
+      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(20.0))),
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              "INGREDIENTES :",
+              style: TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            _textDescription(),
+            Spacer(),
+            _addOrRemoveItem(),
+          ],
+        ),
       ),
     );
   }
@@ -58,7 +86,7 @@ class _ClientProductsDetailPageState extends State<ClientProductsDetailPage> {
       alignment: Alignment.centerLeft,
       margin: EdgeInsets.only(right: 30, left: 30, top: 15),
       child: Text(
-        'Piña \n Carne \n Queso \n Carne de res',
+        _con.product?.description ?? '',
         style: TextStyle(
             fontSize: 13,
             color: Colors.grey
@@ -69,12 +97,12 @@ class _ClientProductsDetailPageState extends State<ClientProductsDetailPage> {
 
   Widget _textName() {
     return Container(
-      alignment: Alignment.centerLeft,
-      margin: EdgeInsets.only(right: 30, left: 30, top: 30),
+      alignment: Alignment.center,
+      margin: EdgeInsets.only(right: 30, left: 30, top: 15, bottom: 15),
       child: Text(
-        'HAWAIANA',
+        _con.product?.name ?? '',
         style: TextStyle(
-            fontSize: 20,
+            fontSize: 25,
             fontWeight: FontWeight.bold
         ),
       ),
@@ -146,9 +174,9 @@ class _ClientProductsDetailPageState extends State<ClientProductsDetailPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               IconButton(
-                  onPressed: _con.removeItem,
+                  onPressed: _con.addItem,
                   icon: Icon(
-                    Icons.remove_circle_outline,
+                    Icons.add_circle_outline,
                     color: Colors.black,
                     size: 30,
                   )
@@ -162,19 +190,20 @@ class _ClientProductsDetailPageState extends State<ClientProductsDetailPage> {
                 ),
               ),
               IconButton(
-                  onPressed: _con.addItem,
+                  onPressed: _con.removeItem,
                   icon: Icon(
-                    Icons.add_circle_outline,
+                    Icons.remove_circle_outline,
                     color: Colors.black,
                     size: 30,
                   )
-              ),
+              )
+              ,
             ],
           ),
           Container(
             margin: EdgeInsets.only(right: 10),
             child: Text(
-              ' Bs 16 ',
+              '${_con.productPrice ?? 0} Bs',
               style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:food_truck/src/models/product.dart';
 import 'package:food_truck/src/utils/shared_pref.dart';
 
@@ -16,7 +17,7 @@ class ClientProductsDetailController {
 
   List<Product> selectedProducts = [];
 
-  Future init(BuildContext context, Function refresh) async {
+  Future init(BuildContext context, Function refresh, Product product) async {
     this.context = context;
     this.refresh = refresh;
     this.product = product;
@@ -47,7 +48,7 @@ class ClientProductsDetailController {
     }
 
     _sharedPref.save('order', selectedProducts);
-    //Fluttertoast.showToast(msg: 'Producto agregado');
+    Fluttertoast.showToast(msg: 'Producto agregado');
   }
 
   void addItem() {

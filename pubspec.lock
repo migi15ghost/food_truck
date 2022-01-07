@@ -97,6 +97,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.4"
+  flutter_sunmi_printer:
+    dependency: "direct main"
+    description:
+      name: flutter_sunmi_printer
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -107,6 +114,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  fluttertoast:
+    dependency: "direct main"
+    description:
+      name: fluttertoast
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "8.0.8"
   http:
     dependency: "direct main"
     description:

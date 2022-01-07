@@ -9,5 +9,5 @@ class MyColors {
   static Color backgroundColor = Color (0xFFFEED00);
   static Color cartDeliveryColor = Color (0xFF2176FF);
   static Color cartHomeColor = Color (0xFFFDC500);
-
+  static Color cartColor = Color (0xFFE5E5E5);
 }
